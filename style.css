@@ -1,0 +1,136 @@
+@font-face {
+  font-family: "bold";
+  src: url("assets/font/IRANSansWeb\(FaNum\)_Bold.eot") format("eot"),
+    url("assets/font/IRANSansWeb\(FaNum\)_Bold.woff") format("woff"),
+    url("assets/font/IRANSansWeb\(FaNum\)_Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "light";
+  src: url("assets/font/IRANSansWeb\(FaNum\)_Light.eot") format("eot"),
+    url("assets/font/IRANSansWeb\(FaNum\)_Light.woff") format("woff"),
+    url("assets/font/IRANSansWeb\(FaNum\)_Light.woff2") format("woff2");
+}
+@font-face {
+  font-family: "medium";
+  src: url("assets/font/IRANSansWeb\(FaNum\)_Medium.eot") format("eot"),
+    url("assets/font/IRANSansWeb\(FaNum\)_Medium.woff") format("woff"),
+    url("assets/font/IRANSansWeb\(FaNum\)_Medium.woff2") format("woff2");
+}
+
+/*     init     */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: "medium";
+}
+body {
+  background-color: rgb(241, 237, 237);
+}
+
+/*    HEADERS    */
+header {
+  background-color: rgb(233, 219, 255);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+  width: 60%;
+  margin: 0 auto;
+}
+.hambergur {
+  font-size: 2.3rem;
+  cursor: pointer;
+  color: rgb(204, 102, 255);
+}
+.fa-bars {
+}
+.title {
+  font-size: 2.2rem;
+  font-family: "bold";
+}
+.shooping {
+  position: relative;
+}
+.shooping span {
+  position: absolute;
+  font-size: 2.8rem;
+  top: -2.2rem;
+  left: 2rem;
+  color: rgb(241, 42, 42);
+}
+.fa-cart-plus {
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: rgb(204, 102, 255);
+}
+
+/*-------END HEADER-------*/
+
+/*    products style     */
+
+.products {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7rem 1rem;
+}
+.products-title {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 10rem;
+}
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7rem;
+}
+.product {
+  width: 30rem;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-img {
+  width: 100%;
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+}
+.p__img {
+  width: 100%;
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+}
+.products-info {
+    padding: 2rem 4rem;
+    display: flex;
+    gap: 5rem;
+    font-family: "medium";
+    font-size: 2rem;
+}
+.product-price {
+    color: rgb(151, 87, 255);
+}
+.product-title {
+}
+.add-btn {
+    border: none;
+    cursor: pointer;
+    background-color:rgb(241, 237, 237);
+    color: rgb(151, 87, 255);
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    padding: .7rem 2.5rem;
+    border-radius: .7rem;
+}
