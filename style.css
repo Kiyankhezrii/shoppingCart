@@ -112,25 +112,25 @@ header {
   border-top-right-radius: 0.8rem;
 }
 .products-info {
-    padding: 2rem 4rem;
-    display: flex;
-    gap: 5rem;
-    font-family: "medium";
-    font-size: 2rem;
+  padding: 2rem 4rem;
+  display: flex;
+  gap: 5rem;
+  font-family: "medium";
+  font-size: 2rem;
 }
 .product-price {
-    color: rgb(151, 87, 255);
+  color: rgb(151, 87, 255);
 }
 .product-title {
 }
 .add-btn {
-    border: none;
-    cursor: pointer;
-    background-color:rgb(241, 237, 237);
-    color: rgb(151, 87, 255);
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    padding: .7rem 2.5rem;
-    border-radius: .7rem;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(241, 237, 237);
+  color: rgb(151, 87, 255);
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 0.7rem 2.5rem;
+  border-radius: 0.7rem;
 }
