@@ -145,7 +145,7 @@ header {
   background-color: rgb(237, 235, 242);
   z-index: 5;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: none;
 }
 
