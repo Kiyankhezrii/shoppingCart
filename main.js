@@ -52,6 +52,8 @@ class Ui {
             { ...productsData.find((p) => p.id == id), quantity: 1 },
           ]);
           this.renderModal(findItem);
+          const allTrash = document.querySelectorAll(".fa-trash-can");
+          this.removeItem(allTrash);
           this.setValue(findItem);
           const fillt = [...document.querySelectorAll(".cehvron")].filter(
             (ch) => ch.dataset.id == id
@@ -59,14 +61,15 @@ class Ui {
           this.setQuantity(fillt);
           showCart.querySelector("span").textContent = cart.length;
         });
-      }
-       else {
+      } else {
         btn.textContent = "In Cart";
         btn.disabled = true;
         const fillt = [...document.querySelectorAll(".cehvron")].filter(
           (ch) => ch.dataset.id == id
         );
         this.setQuantity(fillt);
+        const allTrash = document.querySelectorAll(".fa-trash-can");
+        this.removeItem(allTrash);
       }
     });
   }
@@ -83,7 +86,7 @@ class Ui {
             <p>${items.quantity}</p>
             <i class="fa-solid fa-chevron-down" ${items.id}></i>
             </div>
-            <i class="fa-solid fa-trash-can"></i>
+            <i class="fa-solid fa-trash-can" data-id=${items.id}></i>
         </div>
     `;
     modal.insertAdjacentHTML("afterBegin", html);
@@ -97,11 +100,12 @@ class Ui {
   }
 
   setQuantity(items) {
-    const p = items[0].querySelector("p");
-    const id = items[0].dataset.id;
+    const [i] = items;
+    const p = i.querySelector("p");
+    const id = i.dataset.id;
     const cartFiltered = cart.find((c) => c.id == id);
     const storageCarts = Storage.getCartsStorage().find((c) => (c.id = id));
-    items[0].addEventListener("click", (e) => {
+    i.addEventListener("click", (e) => {
       if (e.target.classList.contains("fa-chevron-up")) {
         p.textContent++;
         cartFiltered.quantity++;
@@ -124,6 +128,28 @@ class Ui {
           +totalPrice.textContent - cartFiltered.price
         ).toFixed(2);
       }
+    });
+  }
+
+  removeItem(items) {
+    items.forEach((item) => {
+      const id = item.dataset.id;
+      item.addEventListener("click", (e) => {
+        const filltered = cart.filter((c) => c.id == id);
+        item.parentElement.remove();
+        if (modal.querySelectorAll(".modal-container").length == 0) {
+          totalPrice.textContent = 0;
+          const sF = Storage.getCartsStorage().filter((c) => c.id != id);
+          Storage.setCartsStorage(sF);
+          return;
+        }
+        totalPrice.textContent = (
+          +totalPrice.textContent -
+          filltered[0].price * filltered[0].quantity
+        ).toFixed(2);
+        const sF = Storage.getCartsStorage().filter((c) => c.id != id);
+        Storage.setCartsStorage(sF);
+      });
     });
   }
 }
@@ -187,7 +213,13 @@ btns.forEach((btn) =>
       });
       showCart.querySelector("span").textContent = 0;
       totalPrice.textContent = 0;
+      productsContainer.querySelectorAll(".add-btn").forEach((btn) => {
+        btn.textContent = "add to Cart";
+        btn.disabled = false;
+      });
       localStorage.removeItem("carts");
+      cart.length = 0;
+      showCart.querySelector("span").textContent = cart.length;
     }
   })
 );
